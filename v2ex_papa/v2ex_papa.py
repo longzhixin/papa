@@ -2,18 +2,18 @@ import time
 import requests
 import random
 from lxml import etree
-from v2ex_login import v2ex_login
+from v2exlogin import V2exLogin
 
 from io import StringIO
 
-class V2ex(v2ex_login):
+class V2ex(V2exLogin):
     def __init__(self):
-        v2ex_login.__init__(self)
+        V2exLogin.__init__(self)
 
     def spider_buy_main(self):
 
         self.content = "生成时间: "+ ' '+ time.asctime()+'\t'
-        for page in range(1, 20):
+        for page in range(1, 2):
             self.content += '   page= ' +str(page)+ '      生成时间: '+time.asctime()+"-----------我是分隔符"
             page_url = "https://www.v2ex.com/go/all4all?p=" + str(page)
             self.content += self.spider(page_url)
